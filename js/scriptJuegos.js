@@ -1,6 +1,7 @@
 
 
 var selectedRow = null
+var i = 1;
 
 function onFormSubmit(e) {
   event.preventDefault();
@@ -30,40 +31,43 @@ function readFormData() {
 function insertNewInfor(data) {
   var table = document.getElementById("listaJuegos").getElementsByTagName('tbody')[0];
   var newRow = table.insertRow(table.length);
-  cell1 = newRow.insertCell(0);
+  cell0 = newRow.insertCell(0);
+  cell0.innerHTML=i;
+  i++;
+  cell1 = newRow.insertCell(1);
   cell1.innerHTML =data.name;
-  cell2 = newRow.insertCell(1);
+  cell2 = newRow.insertCell(2);
   cell2.innerHTML =data.descripcion;
-  cell3 = newRow.insertCell(2);
+  cell3 = newRow.insertCell(3);
   cell3.innerHTML =data.genero;
-  cell4 = newRow.insertCell(3);
+  cell4 = newRow.insertCell(4);
   cell4.innerHTML =data.plataforma;
-  cell5 = newRow.insertCell(4);
+  cell5 = newRow.insertCell(5);
   cell5.innerHTML =data.distribuidora;
-  cell6 = newRow.insertCell(5);
-  cell6.innerHTML =data.precio;
   cell6 = newRow.insertCell(6);
-  cell6.innerHTML = cell6.innerHTML = `<button onClick="onEdit(this)">Editar</button>
-                                       <button onClick="onDelete(this)">Eliminar</button>`;
+  cell6.innerHTML = data.precio;
+  cell7 = newRow.insertCell(7);
+  cell7.innerHTML = `<button onClick="onEdit(this)" class="btn btn-primary">Editar</button>
+                                       <button onClick="onDelete(this)" class="btn btn-danger">Eliminar</button>`;
 
 
 }
 function onEdit(td) {
   selectedRow = td.parentElement.parentElement;
-  document.getElementById("name").value = selectedRow.cells[0].innerHTML;
-  document.getElementById("descripcion").value = selectedRow.cells[1].innerHTML;
-  document.getElementById("opciones1").value = selectedRow.cells[2].innerHTML;
-  document.getElementById("opciones2").value = selectedRow.cells[3].innerHTML;
-  document.getElementById("opciones3").value = selectedRow.cells[4].innerHTML;
-  document.getElementById("precio").value = selectedRow.cells[5].innerHTML;
+  document.getElementById("name").value = selectedRow.cells[1].innerHTML;
+  document.getElementById("descripcion").value = selectedRow.cells[2].innerHTML;
+  document.getElementById("opciones1").value = selectedRow.cells[3].innerHTML;
+  document.getElementById("opciones2").value = selectedRow.cells[4].innerHTML;
+  document.getElementById("opciones3").value = selectedRow.cells[5].innerHTML;
+  document.getElementById("precio").value = selectedRow.cells[6].innerHTML;
 }
 function updateRecord(formData) {
-  selectedRow.cells[0].innerHTML = formData.name;
-  selectedRow.cells[1].innerHTML = formData.descripcion;
-  selectedRow.cells[2].innerHTML = formData.genero;
-  selectedRow.cells[3].innerHTML = formData.plataforma;
-  selectedRow.cells[4].innerHTML = formData.distribuidora;
-  selectedRow.cells[5].innerHTML = formData.precio;
+  selectedRow.cells[1].innerHTML = formData.name;
+  selectedRow.cells[2].innerHTML = formData.descripcion;
+  selectedRow.cells[3].innerHTML = formData.genero;
+  selectedRow.cells[4].innerHTML = formData.plataforma;
+  selectedRow.cells[5].innerHTML = formData.distribuidora;
+  selectedRow.cells[6].innerHTML = formData.precio;
 }
 function onDelete(td) {
   if (confirm('Quieres eliminar este juego?')) {
