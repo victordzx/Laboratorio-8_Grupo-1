@@ -312,7 +312,7 @@
               </select>
             </div>
             <div class="form-group">
-              <button type="button" onclick="limpiardatos()" class="btn btn-danger">Cancelar</button>
+              <button type="reset" class="btn btn-danger">Cancelar</button>
               <button type="submit" class="btn btn-primary">Añadir</button>
             </div>
           </form>
@@ -375,9 +375,9 @@
         document.getElementById("errorDescripcion").style.display = "none";
       }
 
-      if (web.length < 3 || web.length > 198 || web==="") {
+      if ((web.length < 3 || web.length > 198) || web === "") {
         document.getElementById("web").classList.add("is-invalid");
-        document.getElementById("errorWebsize").style.display = "block";
+        document.getElementById("errorWebSize").style.display = "block";
         ok = false;
       }else{
         document.getElementById("web").classList.remove("is-invalid");
@@ -455,6 +455,7 @@
         document.getElementById("errorWebSize").style.display = "none";
       }
     }
+
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
