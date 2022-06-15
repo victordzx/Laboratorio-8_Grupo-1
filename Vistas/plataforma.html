@@ -21,6 +21,7 @@
           $("#MsjeErrorNom").hide();
           $("#MsjeErrorDesc").hide();
           $("#MsjeErrorWeb").hide();
+          $("#MsjeErrorWeb2").hide();
           //Limpíamos el form
           $("#nombre").val("");
           $("#descripcion").val("");
@@ -79,6 +80,9 @@
                 <div class="text-danger" style="display: none" id="MsjeErrorWeb" >
                   La web debe contener entre 3 a 512 caracteres y no debe estar vacío el campo
                 </div>
+                <div class="text-danger" style="display: none" id="MsjeErrorWeb2" >
+                  La web ingresada debe ser una url valida
+                </div>
               </div>
               <div class="form-group">
                 <a class="btn btn-danger" id="ElimMsjes">Cancelar</a>
@@ -124,6 +128,7 @@
     <script>
       var i= 1;
       var Filaselec = null;
+      var valurl = /^(ftp|http|https):\/\/[^ "]+$/;
       function SubmitForm() {
         //leemos la data
         var nombre = document.getElementById("nombre").value;
@@ -176,6 +181,7 @@
           document.getElementById("MsjeErrorNom").style.display = "none";
           document.getElementById("MsjeErrorDesc").style.display = "none";
           document.getElementById("MsjeErrorWeb").style.display = "none";
+          document.getElementById("MsjeErrorWeb2").style.display = "none";
         }
       }
       function validacion(nombre,descripcion,web) {
@@ -206,6 +212,12 @@
           document.getElementById("MsjeErrorWeb").style.display = "inline";
         }else{
           document.getElementById("MsjeErrorWeb").style.display = "none";
+        }
+        if(!valurl.test(web)){
+          ValidOKWeb= false;
+          document.getElementById("MsjeErrorWeb2").style.display = "inline";
+        }else{
+          document.getElementById("MsjeErrorWeb2").style.display = "none";
         }
 
 
