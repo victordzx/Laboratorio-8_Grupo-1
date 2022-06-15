@@ -20,9 +20,9 @@ function readFormData() {
   var formData = {};
   formData["name"] = document.getElementById("name").value;
   formData["descripcion"] = document.getElementById("descripcion").value;
-  formData["genero"] = document.getElementById("genero").value;
-  formData["plataforma"] = document.getElementById("plataforma").value;
-  formData["distribuidora"] = document.getElementById("distribuidora").value;
+  formData["genero"] = document.getElementById("opciones1").value;
+  formData["plataforma"] = document.getElementById("opciones2").value;
+  formData["distribuidora"] = document.getElementById("opciones3").value;
   formData["precio"] = document.getElementById("precio").value;
   return formData;
 }
@@ -52,9 +52,9 @@ function onEdit(td) {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("name").value = selectedRow.cells[0].innerHTML;
   document.getElementById("descripcion").value = selectedRow.cells[1].innerHTML;
-  document.getElementById("genero").value = selectedRow.cells[2].innerHTML;
-  document.getElementById("plataforma").value = selectedRow.cells[3].innerHTML;
-  document.getElementById("distribuidora").value = selectedRow.cells[4].innerHTML;
+  document.getElementById("opciones1").value = selectedRow.cells[2].innerHTML;
+  document.getElementById("opciones2").value = selectedRow.cells[3].innerHTML;
+  document.getElementById("opciones3").value = selectedRow.cells[4].innerHTML;
   document.getElementById("precio").value = selectedRow.cells[5].innerHTML;
 }
 function updateRecord(formData) {
@@ -76,9 +76,9 @@ function onDelete(td) {
 function resetForm() {
   document.getElementById("name").value = '';
   document.getElementById("descripcion").value = '';
-  document.getElementById("genero").value = '';
-  document.getElementById("plataforma").value = '';
-  document.getElementById("distribuidora").value = '';
+  document.getElementById("opciones1").value = '';
+  document.getElementById("opciones2").value = '';
+  document.getElementById("opciones3").value = '';
   document.getElementById("precio").value = '';
   selectedRow = null;
 }
