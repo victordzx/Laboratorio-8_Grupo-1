@@ -56,64 +56,92 @@
     <table>
       <tr>
         <td>
+          <div class="page-header text-center">
+            <h2>Juegos</h2>
+          </div>
           <div class="container-fluid">
             <form class="row g-3" name="form" autocomplete="off" onsubmit="onFormSubmit()">
               <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control"  id="nombre" name="nombre"  >
+                <div id="errorNombre" class="invalid-feedback" style="display : none">
+                  El nombre debe contener entre 3 a 50 caracteres.
+                </div>
               </div>
               <div class="form-group">
                 <label for="descripcion">Descripción</label>
                 <textarea class="form-control" id="descripcion" name="descripcion" ></textarea>
                 <div class="text-danger" style="display: none" id="MsjeErrorDesc" >
-                  La descripcion debe contener entre 3 a 512 caracteres y no debe estar vacío el campo
+                  La descripcion debe contener entre 3 a 512 caracteres
                 </div>
               </div >
-              <div>Genero:
-                <select id="opciones1" class="opciones1">
-                  <option value="">-Seleccione-</option>
-                  <option value="1">Accion</option>
-                  <option value="2">Simulacion</option>
-                  <option value="3">Agilidad</option>
-                  <option value="4">Accion-aventura</option>
-                  <option value="5">RPG</option>
+              <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="text" class="form-control" id="precio" name="precio"/>
+                <div id="errorPrecio" class="invalid-feedback" style="display : none">
+                  Debe ser un número, mínimo 50 y máximo 550
+                </div>
+              </div >
+              <div class="form-group">
+                <label for="genero">Género</label>
+                <select type="text" class="form-control" id="genero" name="genero">
+                  <option value="" id="">- Seleccione -</option>
+                  <option value="Accion">Accion</option>
+                  <option value="Simulacion">Simulacion</option>
+                  <option value="Agilidad">Agilidad</option>
+                  <option value="Accion-aventura">Accion-aventura</option>
+                  <option value="RPG">RPG</option>
                 </select>
-                <p id="genero"></p></div>
-              <div>Plataforma:
-                <select id="opciones2" class="opciones2">
-                  <option value="">-Seleccione-</option>
-                  <option value="1">Wii</option>
-                  <option value="2">Xbox 360 4</option>
-                  <option value="3">Nintendo Switch</option>
-                  <option value="4">APlayStation 5</option>
-                  <option value="5">Xbox Serie X</option>
-                  <option value="6">Nintendo Switch Lite</option>
+                <div id="errorGenero" class="invalid-feedback" style="display: none">
+                 Seleccione un genero de la lista.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="plataforma">Plataforma</label>
+                <select type="text" class="form-control" id="plataforma" name="plataforma">
+                  <option value="" id="">- Seleccione -</option>
+                  <option value="Wii">Wii</option>
+                  <option value="Xbox 360 4">Xbox 360 4</option>
+                  <option value="Nintendo Switch">Nintendo Switch</option>
+                  <option value="APlayStation 5">APlayStation 5</option>
+                  <option value="Xbox Serie X">Xbox Serie X</option>
+                  <option value="Nintendo Switch Lite">Nintendo Switch Lite</option>
                 </select>
-                <p id="plataforma"></p></div>
-              <div>
-                Distribuidora:
-                <select id="opciones3" class="opciones3">
-                  <option value="">-Seleccione-</option>
-                  <option value="1">Electronic Arts</option>
-                  <option value="2">Sony Interactive Entertainment</option>
-                  <option value="3">Activision</option>
-                  <option value="4">Ubisoft</option>
-                  <option value="5">Bandai Namco Entertainment</option>
+                <div id="errorPlataforma" class="invalid-feedback" style="display: none">
+                  Seleccione una plataforma de la lista.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="distribuidora">Distribuidora</label>
+                <select type="text" class="form-control" id="distribuidora" name="distribuidora">
+                  <option value="" id="">- Seleccione -</option>
+                  <option value="Electronic Arts">Electronic Arts</option>
+                  <option value="Sony Interactive Entertainment">Sony Interactive Entertainment</option>
+                  <option value="Activision">Activision</option>
+                  <option value="Ubisoft">Ubisoft</option>
+                  <option value="Bandai Namco Entertainment">Bandai Namco Entertainment</option>
                 </select>
-                <p id="distribuidora"></p>
+                <div id="errorDistribuidora" class="invalid-feedback" style="display: none">
+                  Seleccione una distribuidora de la lista.
+                </div>
               </div>
               <!--<div>
                 <label for="imagen">Imagen URL:</label>
                 <input type="text" name="imagen" id="imagen">
               </div>-->
               <div class="form-group">
-                <label for="precio">Descripción</label>
-                <textarea class="form-control" id="precio" name="precio" ></textarea>
-
-              </div >
-              <div class="form_action--button">
-                <input type="submit" value="Guardar">
-                <input type="reset" value="Eliminar">
+                <label for="web">Web</label>
+                <input type="text" class="form-control" id="web" name="web">
+                <div id="errorWebSize" class="invalid-feedback" style="display: none">
+                  La URL debe contener entre 10 y 256 caracteres.
+                </div>
+                <div id="errorWeb" class="invalid-feedback" style="display: none">
+                  Ingrese una URL válida.
+                </div>
+              </div>
+              <div class="form-group">
+                <a class="btn btn-danger" id="ElimMsjes">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Añadir</button>
               </div>
             </form>
           </div>
