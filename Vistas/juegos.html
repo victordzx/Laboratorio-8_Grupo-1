@@ -15,23 +15,7 @@
 
     <!-- JQUERY-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-      $(document).ready(function (){
-        $("#ElimMsjes").click(function (){
-          //Si hay mensajes de error los ocultamos con el boton de cancelar
-          $("#MsjeErrorNom").hide();
-          $("#MsjeErrorDesc").hide();
-          $("#MsjeErrorWeb").hide();
-          $("#MsjeErrorWeb2").hide();
-          //Limpíamos el form
-          $("#nombre").val("");
-          $("#descripcion").val("");
-          $("#web").val("");
 
-        });
-      });
-
-    </script>
 
 
     <!-- Google Fonts-->
@@ -72,62 +56,67 @@
     <table>
       <tr>
         <td>
-          <form name="form" autocomplete="off" onsubmit="onFormSubmit()">
-            <div>
-              <label for="name">Nombre:</label>
-              <input type="text" name="name" id="name">
-            </div>
-            <div>
-              <label for="descripcion">Descripcion:</label>
-              <input type="text" name="descripcion" id="descripcion">
-            </div>
-            <div>Genero:
-              <select id="opciones1" class="opciones1">
-                <option value="">-Seleccione-</option>
-                <option value="1">Accion</option>
-                <option value="2">Simulacion</option>
-                <option value="3">Agilidad</option>
-                <option value="4">Accion-aventura</option>
-                <option value="5">RPG</option>
-              </select>
-              <p id="genero"></p></div>
-            <div>Plataforma:
-              <select id="opciones2" class="opciones2">
-                <option value="">-Seleccione-</option>
-                <option value="1">Wii</option>
-                <option value="2">Xbox 360 4</option>
-                <option value="3">Nintendo Switch</option>
-                <option value="4">APlayStation 5</option>
-                <option value="5">Xbox Serie X</option>
-                <option value="6">Nintendo Switch Lite</option>
-              </select>
-              <p id="plataforma"></p></div>
-            <div>
-              Distribuidora:
-              <select id="opciones3" class="opciones3">
-                <option value="">-Seleccione-</option>
-                <option value="1">Electronic Arts</option>
-                <option value="2">Sony Interactive Entertainment</option>
-                <option value="3">Activision</option>
-                <option value="4">Ubisoft</option>
-                <option value="5">Bandai Namco Entertainment</option>
-              </select>
-              <p id="distribuidora"></p>
-            </div>
-            <!--<div>
-              <label for="imagen">Imagen URL:</label>
-              <input type="text" name="imagen" id="imagen">
-            </div>-->
-            <div>
-              <label for="precio">Precio:</label>
-              <input type="number" name="precio" id="precio">
-            </div>
-            <div class="form_action--button">
-              <input type="submit" value="Guardar">
-              <input type="reset" value="Eliminar">
-            </div>
-          </form>
+          <div class="container-fluid">
+            <form class="row g-3" name="form" autocomplete="off" onsubmit="onFormSubmit()">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control"  id="nombre" name="nombre"  >
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" ></textarea>
+                <div class="text-danger" style="display: none" id="MsjeErrorDesc" >
+                  La descripcion debe contener entre 3 a 512 caracteres y no debe estar vacío el campo
+                </div>
+              </div >
+              <div>Genero:
+                <select id="opciones1" class="opciones1">
+                  <option value="">-Seleccione-</option>
+                  <option value="1">Accion</option>
+                  <option value="2">Simulacion</option>
+                  <option value="3">Agilidad</option>
+                  <option value="4">Accion-aventura</option>
+                  <option value="5">RPG</option>
+                </select>
+                <p id="genero"></p></div>
+              <div>Plataforma:
+                <select id="opciones2" class="opciones2">
+                  <option value="">-Seleccione-</option>
+                  <option value="1">Wii</option>
+                  <option value="2">Xbox 360 4</option>
+                  <option value="3">Nintendo Switch</option>
+                  <option value="4">APlayStation 5</option>
+                  <option value="5">Xbox Serie X</option>
+                  <option value="6">Nintendo Switch Lite</option>
+                </select>
+                <p id="plataforma"></p></div>
+              <div>
+                Distribuidora:
+                <select id="opciones3" class="opciones3">
+                  <option value="">-Seleccione-</option>
+                  <option value="1">Electronic Arts</option>
+                  <option value="2">Sony Interactive Entertainment</option>
+                  <option value="3">Activision</option>
+                  <option value="4">Ubisoft</option>
+                  <option value="5">Bandai Namco Entertainment</option>
+                </select>
+                <p id="distribuidora"></p>
+              </div>
+              <!--<div>
+                <label for="imagen">Imagen URL:</label>
+                <input type="text" name="imagen" id="imagen">
+              </div>-->
+              <div class="form-group">
+                <label for="precio">Descripción</label>
+                <textarea class="form-control" id="precio" name="precio" ></textarea>
 
+              </div >
+              <div class="form_action--button">
+                <input type="submit" value="Guardar">
+                <input type="reset" value="Eliminar">
+              </div>
+            </form>
+          </div>
           <script>
             function validateForm() {
               let name = document.forms["form"]["name"].value;
@@ -184,28 +173,40 @@
             }
           </script>
       </tr>
-
-    </table>
-    <td>
-      <table class="list-group " id="listaJuegos">
-        <thead>
-          <tr>
-            <th> Nombre</th>
-            <th style="width: 18%">Descripcion</th>
-            <th>Genero</th>
-            <th>Plataforma</th>
-            <th>Distribuidora</th>
-            <th>Precio (S/)</th>
-            <th></th>
-
-          </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
       </table>
-    </td>
+      <div class="container-fluid">
 
+        <table class="list-group " id="listaJuegos">
+          <thead>
+            <tr>
+              <th> Nombre</th>
+              <th style="width: 18%">Descripcion</th>
+              <th>Genero</th>
+              <th>Plataforma</th>
+              <th>Distribuidora</th>
+              <th>Precio (S/)</th>
+              <th></th>
+
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- /Contenido -->
+      <footer  class="py-4 bg-light mt-auto">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">
+              <span>Grupo 1- PUCP 2022</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
     <script type="text/javascript" src="../js/scriptJuegos.js"></script>
           </script>
   </body>
