@@ -1,16 +1,17 @@
 
+
 var selectedRow = null
 
 function onFormSubmit(e) {
   event.preventDefault();
-    var formData = readFormData();
-    if (selectedRow == null){
-      insertNewInfor(formData);
-    }
-    else{
-      updateRecord(formData);
-    }
-    resetForm();
+  var formData = readFormData();
+  if (selectedRow == null){
+    insertNewInfor(formData);
+  }
+  else{
+    updateRecord(formData);
+  }
+  resetForm();
 }
 
 
@@ -46,7 +47,7 @@ function insertNewInfor(data) {
                                        <button onClick="onDelete(this)">Eliminar</button>`;
 
 
-    }
+}
 function onEdit(td) {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("name").value = selectedRow.cells[0].innerHTML;
