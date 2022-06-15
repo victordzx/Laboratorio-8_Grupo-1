@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Distribuidora</title>
 </head>
-<body>
 
+<body>
+  <h1 align="center">Distribuidora</h1>
+
+  <form name="myForm" onsubmit="return validateForm()" method="post">
+    Nombre: <input type="text" name="nombre">
+    <p id="nombre"></p>
+    <br>
+    Descripción: <input type="text" name="descripcion">
+    <p id="descripcion"></p>
+    <br>
+    Precio: <input type="number" name="precio"> S/.
+    <p id="precio"></p>
+    <br>
+    Género:
+    <select id="select" class="required">
+      <option value="">Elija un género</option>
+      <option value="1">Acción-aventura</option>
+      <option value="2">RPG</option>
+      <option value="3">Estrategia</option>
+      <option value="4">MMORPG</option>
+    </select>
+    <p id="genero"></p>
+    <br>
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      let nombre = document.forms["myForm"]["nombre"].value;
+      let text;
+      if ((nombre.length < 3) || (nombre.length > 50)) {
+        text = "Debe contener entre 3 a 50 caracteres";
+      }else{
+        text = "";
+      }
+      document.getElementById("nombre").innerHTML = text;
+
+      let descripcion = document.forms["myForm"]["descripcion"].value;
+      if((descripcion.length < 3) || (descripcion.length > 512)){
+        text = "Debe contener entre 3 a 512 caracteres";
+      }else{
+        text = "";
+      }
+      document.getElementById("descripcion").innerHTML = text;
+
+      let precio = document.forms["myForm"]["precio"].value;
+      if((precio < 50 ) || (precio > 550)){
+        text = "El precio debe estar entre S/. 50 y S/. 550";
+      }else{
+        text = "";
+      }
+      document.getElementById("precio").innerHTML = text;
+    }
+
+    let genero = document.forms["myForm"]["select"].value;
+    if(genero.value){
+      text = "Elija un género"
+    }else{
+      text = "";
+    }
+    document.getElementById("genero").innerHTML = text;
+  </script>
 </body>
 </html>
